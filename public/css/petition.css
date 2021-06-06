@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+.section{
+    background-image: linear-gradient(110deg, #061924 0%, #c21cd1 100%);
+    height: 68rem;
+    }
+
+    .petition-section{
+        height: 12rem;
+    }
+    .card-title {
+        /* margin-bottom: .5rem; */
+        margin: 1rem;
+        text-align: center;
+        font-size: 2rem;
+        font-family: Montserrat;
+        color: currentColor;
+    }
+    .container{
+        text-align: -webkit-center;
+        padding: 1rem;
+        background-color: #0093E9;
+        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+        
+    }
+    #card-subtitle-text{
+        display: block;
+        text-align: justify;
+    }
+     .button-section{
+         display: block;
+         padding: 2rem;
+     }   
+
+     @media(max-width:775px){
+        .button-section{
+            height: 6rem;
+        }
+    
+           /* .footer-section{
+            display: block;
+            position: absolute;
+            bottom: 0px;
+        } */
+     }
+     @media(max-width:775px){
+       #floatingInput, #floatingSelect, #floatingTextarea2{
+           width: 15rem;
+       }
+       #label{
+           margin-left: 3rem;
+       }
+     }

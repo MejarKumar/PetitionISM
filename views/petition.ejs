@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Petition</title>
+    <link rel="stylesheet" href="/css/petition.css">
+</head>
+<body>
+
+    <div class="section">
+        <%- include("partials/header"); -%>
+        
+        <div class="petition-section">
+            <form action="/pages/petition.html" method="POST">
+            <div class="container">
+              <h2 style="
+              color: azure;
+              padding: 1rem 0rem;">Write Your Petition</h2>
+        
+              <div class="card">
+                <div class="container">
+                  <div class="card-title"> Write Petition Title</div>
+                  <div class="mb-3" style="width: 22rem;">
+                   
+                    <input type="text" name="Title" class="form-control" id="floatingInput" placeholder="Write Title">
+               
+                  </div>
+                  <h5 style="color: red; text-align: left;">Note*</h5>
+                  <div class="card-subtitle" id="card-subtitle-text">This is the first thing people will see about your petition. Get their attention
+                    with a short
+                    title that focusses on the change you’d like them to support.</div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="container">
+                  <div class="card-title"> Write Tag Authority</div>
+                  <div class="mb-3" style="width: 22rem;">
+                  
+                      <select class="form-select" name="TagedAuthority" id="floatingSelect" aria-label="default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="Academics">Academics</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Library">Library</option>
+                        <option value="Library">Mess</option>
+                        <option value="Library">Hostel</option>
+                      </select>
+                     
+                    
+                    <!-- <input type="email" class="form-control" id="floatingInput" >
+                    <label id="label" for="floatingInput">Taged Authority</label> -->
+                  </div>
+                  <h5 style="color: red; text-align: left;">Note*</h5>
+                  <div class="card-subtitle" id="card-subtitle-text">Choose the Authority of your petition. He has the power to solve your problem or
+                    take the action
+                    you’re demanding.</div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="container">
+                  <div class="card-title"> Write Your Problem</div>
+                  <div class="mb-3" style="width: 22rem;">
+                   
+                      <textarea class="form-control" name="Description" id="floatingTextarea2  exampleFormControlTextarea1" rows="5" placeholder="Explain your problem" ></textarea>
+                      
+             
+                    <!-- <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label id="label" for="floatingInput">Description</label> -->
+                  </div>
+                  <h5 style="color: red; text-align: left;">Note*</h5>
+                  <div class="card-subtitle" id="card-subtitle-text">People/students are more likely to support your petition if it’s clear why you care.
+                    Explain
+                    how
+                    this change will impact you.</div>
+                </div>
+              </div>
+              <div class="button-section">
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-danger">Clear</button>
+                  </div>
+                  <div class="col">
+                    <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div></form>
+          </div>
+        
+        
+        
+        </div>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,63 @@
+/* login section  */
+body{
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    font-family: 'Itim', cursive; 
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .container {
+      
+    padding: 2px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    
+  }
+
+#avatar{
+    width: 25%;
+    display: block;
+    margin: auto;
+    /* top: 2rem; */
+    position: relative;
+    top: -4rem;
+}
+@media(max-width:1219px){
+    .card{
+      width: 30rem;
+    }
+  }
+  @media(max-width:504px){
+    .card{
+      width: 25rem;
+    }
+  }
+  @media(max-width:431px){
+    .card{
+      width: 20rem;
+    }
+    #floatingInput{
+      display: block;
+  width: 15rem;
+  margin: auto;
+    }
+    #inputlabel{
+      margin-left: 3rem;
+    }
+    .card a{
+    font-size: 10px;
+    }
+  }
