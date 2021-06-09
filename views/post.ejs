@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post</title>
+    <link rel="stylesheet" href="/css/post.css">
+    <script src="/js/post.js"></script>
+</head>
+<body>
+    <div class="full-screen">
+
+        <%- include("partials/header"); -%>
+        <div class="container" style="margin-top: 10rem;">
+        
+        
+        <div class="card" style="background-color:#1b2018 ;">
+            <div class="card-body">
+              <h5 class="card-title" style="color: #b0de61;"><%= Title %></h5>
+              <h6 class="card-subtitle mb-2 text-muted" > @ <%= TagedAuthority %>   </h6><hr>
+              <p class="card-text" style="color: #d9ded2e3;"><%= Description  %></p>
+              <a href="#" class="card-link"><button id="shareButton" class="btn btn-success">Share</button></a>
+              <a href="#" class="card-link"><button class="btn btn-primary">Detail</button></a>
+              <a href="#" class="card-link"><button class="btn btn-warning">like</button></a>
+            </div>
+          </div>
+        </div>
+        </div>
+</body>
+</html>
+
+
+

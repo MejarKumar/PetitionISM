@@ -1,0 +1,15 @@
+.full-screen{
+    background-image: linear-gradient(150deg, #14222b 0%, #083881 100%);
+    height: 45rem;
+}
+.card{
+    width: 40rem;
+    box-shadow:
+    inset 0 -3em 3em rgba(0,0,0,0.1),
+          0 0  0 2px rgb(255,255,255),
+          0.3em 0.3em 1em rgba(0,0,0,0.3);
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: ghostwhite;
+}

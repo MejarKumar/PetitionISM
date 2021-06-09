@@ -13,12 +13,24 @@
 
         <div class="container">
             <h1 id="petitionlist-header">Petition List</h1><hr>
-        </div>
-        <div class="container">
 
 
-            
+           <% petitions.forEach((post)=>{ %>
+            <div class="card" style="background-color:#1b2018 ;">
+                <div class="card-body">
+                  <h5 class="card-title" style="color: #b0de61;"><%= post.Title %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted" > @ <%= post.TagedAuthority %>   </h6><hr>
+                  <p class="card-text" style="color: #d9ded2e3;"><%= post.Description.substring(0,100) + "..."  %></p>
+                  <a href="#" class="card-link"><button class="btn btn-success">Share</button></a>
+                  <a href="/post/:<%=post.Title%>" class="card-link"><button class="btn btn-primary">Detail</button></a>
+                  <a href="#" class="card-link"><button class="btn btn-warning">like</button></a>
+                </div>
+              </div>
+
+           
+           <% }) %>
         </div>
+        
     </div>
 
 
