@@ -51,8 +51,14 @@ padding-top: 2rem;
 }
 .academicinfo-section{
 /* background-color: #903749; */
-background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
+background-image: linear-gradient(to top, #039797 0%, #6e45e2 100%);
+min-height: 500px; 
 
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 padding: 2rem;
 }
 

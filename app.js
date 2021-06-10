@@ -6,47 +6,34 @@ const ejs = require("ejs");
 const mongoose = require("mongoose");
 const passport =require("passport");
 const session=require("express-session");
-const passportLocalMongoose=require("passport-local-mongoose")
+const passportLocalMongoose=require("passport-local-mongoose");
 const GoogleStrategy=require("passport-google-oauth20").Strategy;
 const findOrCreate= require("mongoose-findorcreate");
-// const encrypt = require("mongoose-encryption");
-// const md5 =require("md5");
 const bcrypt= require("bcrypt");
 const _ = require('lodash');
 const saltRounds =10;
 
-const petitions=[];
+
 const app = express();
 app.use(express.static("public"));
 app.set("view engine",'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
+
+// import the module 
+const User = require("./models/user");
+const Petition = require("./models/petition");
+
+const { insertMany } = require('./models/user');
+
+
+mongoose.connect("mongodb://localhost:27017/userDB",{useNewUrlParser:true,useUnifiedTopology: true});
 
 app.use(session({
     secret:"our little secret",
     resave:false,
     saveUninitialized:false
 }))
-// connect to mongoose with mmongodb 
-// mongoose.connect('mongodb://localhost:27017/PetitionListDB', {useNewUrlParser: true, useUnifiedTopology: true});
-// const petitionSchema = new mongoose.Schema({
-//     Title: String,
-//     TagedAuthority : String,
-//     Descrition: String
-// })
 
-// const Petition = mongoose.model("Petition", petitionSchema);
-
-
-mongoose.connect("mongodb://localhost:27017/userDB",{useNewUrlParser:true,useUnifiedTopology: true});
-
-const userSchema = new mongoose.Schema({
-   email: String,
-   password: String
-});
-userSchema.plugin(findOrCreate);
-
-
-const User = mongoose.model("User",userSchema);
 
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
@@ -63,6 +50,15 @@ passport.use(new GoogleStrategy({
 // userSchema.plugin(encrypt,{secret: process.env.SECRET, encryptedFields:['password']});
 
 
+const petitionItems = [ ];
+
+Petition.insertMany(petitionItems,(err)=>{
+    if(err) {
+        console.log(err);
+    }else{
+        console.log("successfully saved your data! ");
+    }
+})
 
 app.get('/',(req,res)=>{
     res.render("home",{})
@@ -81,33 +77,33 @@ app.get('/petition',(req,res)=>{
 
 })
 app.get('/petitionlist',(req,res)=>{
-res.render("petitionlist",{
-    petitions:petitions
+    Petition.find({}, (err, foundItems)=>{
+        res.render("petitionlist",{
+         petitions: foundItems
+        });
+    })
+})
+
+
+app.get("/post/:postId",(req,res)=>{
+   const requestedPetition= req.params.postId;
+ 
+   Petition.findOne({_id:requestedPetition},(err,foundItems)=>{
+       if(!err){
+           if(!foundItems){
+               console.log("does not matched.")
+           }else{
+           
+               res.render("post",{
+                Title: foundItems.Title,
+               TagedAuthority: foundItems.TagedAuthority,
+              Description: foundItems.Description
+               })
+           }
+       }
+   })
+
 });
-// console.log(petitions);
-
-})
-
-
-app.get("/post/:postTitle",(req,res)=>{
-   const requestedPetition= _.lowerCase(req.params.postTitle);
-petitions.forEach((post)=>{
-    const storedPetition = _.lowerCase(post.Title);
-
-if( requestedPetition==storedPetition){
-res.render("post",{
-   Title : post.Title,
-   TagedAuthority : post.TagedAuthority,
-   Description: post.Description
-})
-}
-
-})
-
-})
-
-
-
 app.post("/register", (req,res)=>{
     bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
         
@@ -148,13 +144,17 @@ app.post("/login",(req,res)=>{
 })
 
 app.post("/petition",(req,res)=>{
-  const petition={
-        Title:req.body.Title,
-        TagedAuthority:req.body.TagedAuthority,
-        Description:req.body.Description
-  }
-  petitions.push(petition);
-
+ 
+     const Title = req.body.Title;
+     const  TagedAuthority= req.body.TagedAuthority;
+     const  Description= req.body.Description;
+  
+const petition = new Petition({
+    Title:Title,
+    TagedAuthority:TagedAuthority,
+    Description:Description
+});
+petition.save();
 res.redirect("/petitionlist");
 })
 

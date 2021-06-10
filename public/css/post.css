@@ -13,3 +13,7 @@
     margin-bottom: 1rem;
     color: ghostwhite;
 }
+#shareButtons{
+    display: block;
+    margin: auto;
+}

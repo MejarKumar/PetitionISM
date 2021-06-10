@@ -3,8 +3,17 @@
 150deg
 , #061924 0%, #3e750a 100%);
     display: block;
-    height: fit-content;
+    /* height: fit-content; */
     padding-bottom: 3rem;
+      /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 #petitionlist-header{

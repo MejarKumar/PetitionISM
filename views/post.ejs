@@ -1,34 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>post</title>
-    <link rel="stylesheet" href="/css/post.css">
-    <script src="/js/post.js"></script>
-</head>
-<body>
-    <div class="full-screen">
 
-        <%- include("partials/header"); -%>
-        <div class="container" style="margin-top: 10rem;">
-        
-        
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>post</title>
+  <link rel="stylesheet" href="/css/post.css">
+  <script src="/js/post.js"></script>
+</head>
+
+<body>
+  <div class="full-screen">
+
+    <%- include("partials/header"); -%>
+      <div class="container" style="margin-top: 10rem;">
+
+
+
+
+
         <div class="card" style="background-color:#1b2018 ;">
-            <div class="card-body">
-              <h5 class="card-title" style="color: #b0de61;"><%= Title %></h5>
-              <h6 class="card-subtitle mb-2 text-muted" > @ <%= TagedAuthority %>   </h6><hr>
-              <p class="card-text" style="color: #d9ded2e3;"><%= Description  %></p>
-              <a href="#" class="card-link"><button id="shareButton" class="btn btn-success">Share</button></a>
-              <a href="#" class="card-link"><button class="btn btn-primary">Detail</button></a>
-              <a href="#" class="card-link"><button class="btn btn-warning">like</button></a>
+          <div class="card-body">
+            <h5 class="card-title" style="color: #b0de61;">
+              <%= Title %>
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted"> @ <%= TagedAuthority %>
+            </h6>
+            <hr>
+            <p class="card-text" style="color: #d9ded2e3;">
+              <%= Description %>
+            </p>
+
+<hr>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <a href="#" class="card-link"><button class="btn btn-warning">like</button></a>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div id="shareButtons" class="addthis_inline_share_toolbox_wt6v"></div>
+              </div>
             </div>
+
+
+
           </div>
         </div>
-        </div>
+
+      </div>
+  </div>
+
+
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60c182b48e0d2e67"></script>
+
 </body>
+
 </html>
-
-
-
